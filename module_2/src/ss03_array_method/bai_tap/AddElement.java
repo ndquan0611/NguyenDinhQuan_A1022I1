@@ -50,6 +50,5 @@ public class AddElement {
         for (int j = 0; j < newArr.length; j++) {
             System.out.print(newArr[j] + " ");
         }
-
     }
 }
