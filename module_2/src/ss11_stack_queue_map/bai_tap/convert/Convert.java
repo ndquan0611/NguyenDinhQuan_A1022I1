@@ -12,7 +12,6 @@ public class Convert {
         int num = sc.nextInt();
         while (num != 0) {
             int numBinary = num % 2;
-            System.out.println(numBinary);
             stack.push(numBinary);
             num /= 2;
         }

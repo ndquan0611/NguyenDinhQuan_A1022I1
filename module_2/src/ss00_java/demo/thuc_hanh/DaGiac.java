@@ -1,5 +1,4 @@
 package ss00_java.demo.thuc_hanh;
 
-public abstract class Main {
-
+public abstract class DaGiac {
 }
