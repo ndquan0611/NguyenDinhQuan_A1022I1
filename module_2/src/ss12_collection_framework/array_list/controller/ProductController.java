@@ -4,6 +4,7 @@ import ss12_collection_framework.array_list.model.Product;
 import ss12_collection_framework.array_list.service.ProductService;
 import ss12_collection_framework.array_list.service.ProductServiceImpl;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class ProductController {
 
     static final Scanner sc = new Scanner(System.in);
 
-    static void displayMainMethod(int select) {
+    static void displayMainMethod(int select) throws IOException {
         do {
             System.out.println("-------Student Management------");
             System.out.println("1. Add new product");
@@ -24,9 +25,9 @@ public class ProductController {
             System.out.println("7. Exit");
             System.out.print("Please input number: ");
 
-            int id = 0;
+            int id;
             String name = "";
-            long price = 0;
+            long price;
             select = Integer.parseInt(sc.nextLine());
 
             switch (select) {
@@ -85,7 +86,7 @@ public class ProductController {
         } while (true);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int select = 0;
         displayMainMethod(select);
     }

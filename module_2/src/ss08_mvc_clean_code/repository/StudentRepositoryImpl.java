@@ -3,6 +3,7 @@ package ss08_mvc_clean_code.repository;
 import ss08_mvc_clean_code.model.Student;
 
 public class StudentRepositoryImpl implements StudentRepository {
+    
     private static Student[] studentList;
     private static int size = 0;
 

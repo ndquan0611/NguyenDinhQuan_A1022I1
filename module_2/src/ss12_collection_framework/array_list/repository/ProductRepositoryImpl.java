@@ -58,7 +58,7 @@ public class ProductRepositoryImpl implements ProductRepository {
             Collections.sort(productList, Comparator.comparing(Product::getPrice));
         } else if (type == 2) {
             Comparator<Product> comparator = Comparator.comparing(Product::getPrice);
-            Collections.sort(productList,comparator.reversed());
+            Collections.sort(productList, comparator.reversed());
         } else {
             System.out.println("Please, only type 1 or 2");
         }
