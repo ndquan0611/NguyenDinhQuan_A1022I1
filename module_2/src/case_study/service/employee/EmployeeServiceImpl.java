@@ -19,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void edit() {
-
+    public void edit(String code, Employee employee) {
+        repository.edit(code, employee);
     }
 }

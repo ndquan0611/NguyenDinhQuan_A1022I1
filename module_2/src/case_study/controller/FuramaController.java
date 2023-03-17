@@ -151,18 +151,97 @@ public class FuramaController {
                     System.out.print("Enter salary: ");
                     salary = Integer.parseInt(sc.nextLine());
 
-                    Employee employee = new Employee(name, date, gender, id, phone, email, code, level, location, salary);
-                    service.add(employee);
+                    Employee addEmployee = new Employee(name, date, gender, id, phone, email, code, level, location, salary);
+                    service.add(addEmployee);
                     break;
                 case 3: // edit
                     System.out.print("Enter employee code to edit: ");
                     String editCode = sc.nextLine();
 
+                    System.out.print("Enter new name: ");
+                    name = sc.nextLine();
+                    System.out.print("Enter new date of birth: ");
+                    date = sc.nextLine();
+                    System.out.print("Enter new gender: ");
+                    gender = sc.nextLine();
+                    System.out.print("Enter new CMND: ");
+                    id = Integer.parseInt(sc.nextLine());
+                    System.out.print("Enter new phone: ");
+                    phone = sc.nextLine();
+                    System.out.print("Enter new email: ");
+                    email = sc.nextLine();
+                    System.out.print("Enter new employee code: ");
+                    code = sc.nextLine();
+
+                    do {
+                        System.out.println("Enter level");
+                        System.out.println("1. Intermediate");
+                        System.out.println("2. College");
+                        System.out.println("3. University");
+                        System.out.println("4. Graduate");
+                        System.out.print("Please input number: ");
+                        select = Integer.parseInt(sc.nextLine());
+                        switch (select) {
+                            case 1:
+                                level = "Intermediate";
+                                break;
+                            case 2:
+                                level = "College";
+                                break;
+                            case 3:
+                                level = "University";
+                                break;
+                            case 4:
+                                level = "Graduate";
+                                break;
+                            default:
+                                System.out.println("Enter 1 to 4!");
+                        }
+                    } while (select < 1 || select > 4);
+                    do {
+                        System.out.println("Enter location");
+                        System.out.println("1. Receptionist");
+                        System.out.println("2. Serve");
+                        System.out.println("3. Expert");
+                        System.out.println("4. Monitor");
+                        System.out.println("5. Manage");
+                        System.out.println("6. Manager");
+                        System.out.print("Please input number: ");
+                        select = Integer.parseInt(sc.nextLine());
+                        switch (select) {
+                            case 1:
+                                location = "Receptionist";
+                                break;
+                            case 2:
+                                location = "Serve";
+                                break;
+                            case 3:
+                                location = "Expert";
+                                break;
+                            case 4:
+                                location = "Monitor";
+                                break;
+                            case 5:
+                                location = "Manage";
+                                break;
+                            case 6:
+                                location = "Manager";
+                                break;
+                            default:
+                                System.out.println("Enter 1 to 6!");
+                        }
+                    } while (select < 1 || select > 6);
+
+                    System.out.print("Enter new salary: ");
+                    salary = Integer.parseInt(sc.nextLine());
+
+                    Employee editEmployee = new Employee(name, date, gender, id, phone, email, code, level, location, salary);
+                    service.edit(editCode, editEmployee);
                     break;
                 case 4: // return
                     break;
             }
-        } while (true);
+        } while (select != 4);
     }
 
     public static void displayCustomer(int select) {

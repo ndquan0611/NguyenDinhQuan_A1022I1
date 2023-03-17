@@ -5,5 +5,5 @@ import case_study.service.Service;
 
 public interface EmployeeRepository extends Service {
     void add(Employee employee);
-    void edit();
+    void edit(String code, Employee employee);
 }

@@ -8,25 +8,22 @@ import java.util.List;
 
 public class FileUtils {
     private static final String FILE_PATH = "E:\\Workspace\\codegym\\module_2\\src\\case_study\\data\\employee.csv";
-    private static List<Employee> employeeList = new ArrayList<>();
 
-    public static void writeEmployee(List<Employee> employeeList) {
+    public static void writeEmployee(Employee employee) {
         try {
-            FileWriter fileWriter = new FileWriter(FILE_PATH);
+            FileWriter fileWriter = new FileWriter(FILE_PATH, true);
             BufferedWriter buff = new BufferedWriter(fileWriter);
-            for (Employee employee : employeeList) {
-                buff.write(employee.getName() + "," +
-                        employee.getDate() + "," +
-                        employee.getGender() + "," +
-                        employee.getId() + "," +
-                        employee.getPhone() + "," +
-                        employee.getEmail() + "," +
-                        employee.getCode() + "," +
-                        employee.getLevel() + "," +
-                        employee.getLocation() + "," +
-                        employee.getSalary() + "\n"
-                );
-            }
+            buff.write(employee.getName() + "," +
+                    employee.getDate() + "," +
+                    employee.getGender() + "," +
+                    employee.getId() + "," +
+                    employee.getPhone() + "," +
+                    employee.getEmail() + "," +
+                    employee.getCode() + "," +
+                    employee.getLevel() + "," +
+                    employee.getLocation() + "," +
+                    employee.getSalary() + "\n"
+            );
             buff.close();
         } catch (IOException e) {
             System.out.println("Error");
@@ -34,13 +31,14 @@ public class FileUtils {
     }
 
     public static List<Employee> readEmployee() {
+        List<Employee> employeeList = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader(FILE_PATH);
             BufferedReader buff = new BufferedReader(fileReader);
             String line = "";
             String[] temp;
             Employee employee;
-            if ((line = buff.readLine()) != null) {
+            while ((line = buff.readLine()) != null) {
                 temp = line.split(",");
                 String name = temp[0];
                 String date = temp[1];
